@@ -52,7 +52,5 @@ public class StringsQs
 	public static void main(String args[])
 	{
 		Scanner jin  = new Scanner(System.in);
-
-		checkAnagram("earth","heart");
 	}
 }
