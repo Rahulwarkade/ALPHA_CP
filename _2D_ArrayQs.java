@@ -56,6 +56,5 @@ public class _2D_ArrayQs
 			{1,4,9},
 			{11,4,3}
 		};
-		transposedMatrix(arr);
 	}
 }

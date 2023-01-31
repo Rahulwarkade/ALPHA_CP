@@ -4,16 +4,16 @@ public class ArrayQs
 {
 	public static boolean containsDuplicates(int nums[])
 	{
-		//BRUTE FORCE APPROACH
-		// for(int i=0; i<nums.length; i++)
-		// {
-		// 	for(int j=i+1; j<nums.length; j++)
-		// 	{
-		// 		if(nums[i]==nums[j])
-		// 			return true;
-		// 	}
-		// }
-		// return false;
+// 		BRUTE FORCE APPROACH
+		for(int i=0; i<nums.length; i++)
+		{
+			for(int j=i+1; j<nums.length; j++)
+			{
+				if(nums[i]==nums[j])
+					return true;
+			}
+		}
+		return false;
 
 		//OPTIMIZED APPROACH
 
