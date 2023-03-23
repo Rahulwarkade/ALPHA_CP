@@ -11,7 +11,7 @@ public class OppsQs
 		ob2.num2 = 3;
 		ob3.sum(ob1,ob2);
 		ob3.product(ob1,ob2);
-		ob3.diff(ob1,ob2);
+		ob3.diff(ob1,ob2); 
 	}
 }
 
