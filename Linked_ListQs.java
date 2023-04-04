@@ -166,10 +166,10 @@ public class Linked_ListQs
 		obj.dltNnodeAfterMnodes(obj.head,2,2);
 		obj.printLL(obj.head);
 
-		// obj2.insertAtTail(4);
+		obj2.insertAtTail(4);
 		// obj2.insertAtTail(5);
 
-		// obj2.printLL(obj2.head);
+		obj2.printLL(obj2.head);
 		// obj.intersection(obj.head,obj2.head,3);
 		// obj2.printLL(obj2.head);
 		// System.out.println(obj.intersectPoint(obj.head,obj2.head));
