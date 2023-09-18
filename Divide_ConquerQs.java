@@ -37,12 +37,32 @@ class Divide_ConquerQs
 		mergeSort(arr,mid+1,ei);
 		merge(arr,si,mid,ei);
 	}
+
+	public static int majorityCount(int[] nums)
+	{
+		int n = nums.length;
+		int majoritycount = n/2;
+
+		for(int i=0; i<n; i++)
+		{	
+			int count =0;
+			for(int j=i; j<n; j++)
+			{
+				if(nums[i]==nums[j])
+					count++;
+			}
+			if(count>majoritycount) return nums[i];
+		}
+		return -1;
+	}
 	public static void main(String args[])
 	{
 		String arr[] = {"sun","earth","mars","mercury"};
+		int[] nums = {2,2,1,1,1,2,2,2};
 
-		mergeSort(arr,0,arr.length-1);
+		// mergeSort(arr,0,arr.length-1);
+		// for(int i=0;i<arr.length; i++) System.out.print(arr[i]+" ");
 
-		for(int i=0;i<arr.length; i++) System.out.print(arr[i]+" ");
+		System.out.println(majorityCount(nums));
 	}
 }
