@@ -55,14 +55,34 @@ class Divide_ConquerQs
 		}
 		return -1;
 	}
+
+	public static void inversionCount(int[] arr)
+	{
+		int inversioncount = 0;
+		int n = arr.length;
+
+		for(int i=0; i<n; i++)
+		{
+			for (int j=i+1; j<n; j++) {
+				if(arr[i]>arr[j])
+					inversioncount++;	
+			}
+		}
+
+		System.out.println(inversioncount);
+	}
 	public static void main(String args[])
 	{
-		String arr[] = {"sun","earth","mars","mercury"};
+		// String arr[] = {"sun","earth","mars","mercury"};
 		int[] nums = {2,2,1,1,1,2,2,2};
+		int[] arr = {2,4,1,3,5};
 
 		// mergeSort(arr,0,arr.length-1);
 		// for(int i=0;i<arr.length; i++) System.out.print(arr[i]+" ");
 
-		System.out.println(majorityCount(nums));
+		// System.out.println(majorityCount(nums));
+
+		inversionCount(arr);
+
 	}
 }
