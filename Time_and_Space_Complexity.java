@@ -19,7 +19,7 @@ class Time_and_Space_Complexity
 	}
 
 
-TC = O(log(kn)) (log(n) of base K) sp = O(1)
+// TC = O(log(kn)) (log(n) of base K) sp = O(1)
 	public static voiid b()
 	{
 		int k = 69; // any constant 
@@ -28,28 +28,28 @@ TC = O(log(kn)) (log(n) of base K) sp = O(1)
 	}
 
 
-// // FALSE
-// 	public static void c()
-// 	{
-// 		// Algorithm A and B have a worst-case running time ofO(n) and O(logn),respectively.Therefore,algorithm B always runs faster than algorithm A.
-// 	}
+// FALSE
+	public static void c()
+	{
+		// Algorithm A and B have a worst-case running time ofO(n) and O(logn),respectively.Therefore,algorithm B always runs faster than algorithm A.
+	}
 
 
 
-// // TC = O(sqrt(n))
-// 	public  static void d(int x)
-// 	{
-// 		if(x==0 || x ==1) return x;
+// TC = O(sqrt(n))
+	public  static void d(int x)
+	{
+		if(x==0 || x ==1) return x;
 
-// 		int i =1,result = 1;
+		int i =1,result = 1;
 
-// 		while(result<=x)
-// 		{
-// 			i++;
-// 			result = i+i;
-// 		}
-// 		return i-1;
-// 	}
+		while(result<=x)
+		{
+			i++;
+			result = i+i;
+		}
+		return i-1;
+	}
 	public static void main(String args[])
 	{
 
