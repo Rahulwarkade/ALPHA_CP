@@ -50,6 +50,21 @@ class Time_and_Space_Complexity
 		}
 		return i-1;
 	}
+
+
+// TC = O(n^2) sc = O(1)
+	public static void e()
+	{
+		int a = 0;
+
+		for(int i=0; i<n; i++)
+		{
+			for(int j=n; j>i; j--)
+			{
+				a = a+i+j;
+			}
+		}
+	}
 	public static void main(String args[])
 	{
 
