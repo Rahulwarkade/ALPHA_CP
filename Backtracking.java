@@ -67,7 +67,7 @@ class Backtracking
         
         // ratMaze(maze,0,0);
 
-		String digit = "234";
+		String digit = "234n";
 		int len = digit.length();
 		lettersCombinations(0,len,new StringBuilder(),digit);
 
