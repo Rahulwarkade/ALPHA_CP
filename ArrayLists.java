@@ -2,6 +2,8 @@ import java.util.*;
 import java.util.ArrayList;
 class ArrayLists
 {
+
+// problem 1. check arraylist is monotonic 
 	public static Boolean isMonotonic(ArrayList<Integer> list)
 	{
 		int n = list.size();
@@ -16,6 +18,8 @@ class ArrayLists
 		return flag1 || flag2;
 	}
 
+
+// problem 2.  find lonely Numbers from the arraylist
 	public static ArrayList<Integer> lonelyNumbers(ArrayList<Integer> list)
 	{
 		ArrayList<Integer> ans = new ArrayList<>();
