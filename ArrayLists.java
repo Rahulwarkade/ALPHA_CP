@@ -45,22 +45,56 @@ class ArrayLists
 
 		return ans;
 	}
+
+	public static Integer freqFollowingKey(ArrayList<Integer> list,int key)
+	{
+		int n = list.size();
+		ArrayList<Integer> followup = new ArrayList<>();
+
+		for(int i=0; i<n; i++)
+		{
+			int freq = 0;
+			for(int j=1; j<n; j++)
+			{
+				if(list.get(i)==list.get(j))
+				{
+					if(key==list.get(j-1))
+					{
+						freq++;
+					}
+				}
+			}
+		followup.add(freq);
+		}
+		int idx = -1;
+		int maxValue = 0;
+		for(int i=0; i<n; i++)
+		{
+			if(maxValue<followup.get(i))
+			{
+				maxValue = followup.get(i);
+				idx = i;
+			}
+		}
+		int ans = (idx!=-1)? list.get(idx) : -1;
+		System.out.println(followup);
+		return ans;
+	}
 	public static void main(String args[])
 	{
-		Integer[] nums = {1,3,5,3};
+		Integer[] nums = {2,2,2,2,3};
 
-		// ArrayList<Integer> list = new ArrayList<>();
+		ArrayList<Integer> list = new ArrayList<>();
 
-		// for(int i=0; i<nums.length; i++)
-		// 	list.add(nums[i]);
+
 
 		// System.out.println(isMonotonic(list));
 
-		ArrayList<Integer> list2 = new ArrayList<>();
+		for(int i=0; i<nums.length; i++) list.add(nums[i]);
 
-		for(int i=0; i<nums.length; i++) list2.add(nums[i]);
+		// ArrayList<Integer> temp = lonelyNumbers(list2);
+		// System.out.println(temp);
 
-		ArrayList<Integer> temp = lonelyNumbers(list2);
-		System.out.println(temp);
+		System.out.println(freqFollowingKey(list,2));
 	}
 }
