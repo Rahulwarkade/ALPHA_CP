@@ -77,9 +77,26 @@ class ArrayLists
 			}
 		}
 		int ans = (idx!=-1)? list.get(idx) : -1;
-		System.out.println(followup);
 		return ans;
 	}
+
+
+	public static void beatifullArray(ArrayList<Integer> arr, ArrayList<Integer> newArr)
+	{
+		if(arr.size()==0)
+		{
+			System.out.println(newArr);
+			return;
+		}
+
+		for(int i=0; i<arr.size(); i++)
+		{
+			newArr.add(arr.get(i));
+			arr.remove(i);
+			beatifullArray(arr,newArr);
+		}
+	}
+
 	public static void main(String args[])
 	{
 		Integer[] nums = {2,2,2,2,3};
@@ -95,6 +112,13 @@ class ArrayLists
 		// ArrayList<Integer> temp = lonelyNumbers(list2);
 		// System.out.println(temp);
 
-		System.out.println(freqFollowingKey(list,2));
+		// System.out.println(freqFollowingKey(list,2));
+		int n = 3;
+		ArrayList<Integer> arr = new ArrayList<>();
+		for(int i=1; i<=n; i++)
+		{
+			arr.add(i);
+		}
+		beatifullArray(arr,new ArrayList<>());
 	}
 }
