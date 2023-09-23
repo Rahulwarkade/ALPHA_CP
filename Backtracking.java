@@ -1,5 +1,5 @@
 import java.util.*;
-
+import java.util.Arrays;
 
 class Backtracking
 {
@@ -57,34 +57,7 @@ class Backtracking
 			}
 		}
 	}
-	public static boolean isSafe(int row,int col,int N)
-	{
-		return ((row>=0 && row<N) && (col>=0 && col<N));
-	}
-	public static void knightTour(int[][] chess,int row,int col,int move,int N)
-	{
-		if(!isSafe(row,col,N)) return;
 
-		if(chess[row][col]!=0) return;
-		
-		if(move==0){
-			chess[row][col] = -1;
-			move++;
-		}
-		else{
-			chess[row][col] = move++;
-		}
-
-		knightTour(chess,row+2,col+1,move,N);
-		knightTour(chess,col+2,row+1,move,N);
-		knightTour(chess,col+2,row-1,move,N);
-		knightTour(chess,row-2,col+1,move,N);
-		knightTour(chess,row-2,col-1,move,N);
-		knightTour(chess,col-2,row+1,move,N);
-		knightTour(chess,row-2,col+1,move,N);
-		knightTour(chess,col-2,row-1,move,N);
-
-	}
 	public static void printChess(int[][] chess)
 	{
 		int n = chess.length;
@@ -97,6 +70,49 @@ class Backtracking
 			}
 			System.out.println();
 		}
+	}
+
+	public static int[] moveX = {1,-1,1,-1,2,2,-2,-2};
+	public static int[] moveY = {2,2,-2,-2,1,-1,1,-1};
+	public static int N = 8;
+
+	public static boolean isSafe(int[][] chess,int move,int row,int col)
+	{
+		return (row>=0 && row<N && col>=0 && col<N && chess[row][col]==-1);
+	}
+	public static boolean KnightTour(int[][] chess,int move,int row,int col)
+	{
+		if(move==N*N)
+		{
+			if(isSafe(chess,move,row,col))
+			{
+				chess[row][col] = move;
+			}
+			return true;
+		}
+
+		if(isSafe(chess,move,row,col))
+		{
+			chess[row][col] = move++;
+
+
+			for(int i=0; i<N; i++)
+			{
+				int nextX = col+moveX[i];
+				int nextY = row + moveY[i];
+
+				if(KnightTour(chess,move,nextY,nextX))
+				{
+					return true;
+				}
+				else 
+				{
+					chess[row][col] = -1;
+				}
+			}
+
+		}
+			return false;
 	}
 	public static void main(String args[])
 	{
@@ -111,11 +127,16 @@ class Backtracking
 		int len = digit.length();
 		// lettersCombinations(0,len,new StringBuilder(),digit);
 
-		int N = 8;
 		int[][] chess  = new int[N][N];
-		int row =0,col=0,move=0;
-		knightTour(chess,row,col,move,N);
 
+		for(int i=0; i<N; i++)
+		{
+			Arrays.fill(chess[i],-1);
+		}
+
+		int move =0,col=0,row=0;
+
+		KnightTour(chess,move,row,col);
 		printChess(chess);
 	}
 }
