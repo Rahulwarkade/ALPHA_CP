@@ -72,8 +72,8 @@ class Backtracking
 		}
 	}
 
-	public static int[] moveX = {1,-1,1,-1,2,2,-2,-2};
-	public static int[] moveY = {2,2,-2,-2,1,-1,1,-1};
+	public static int[] moveX = {1,-1,2,2,1,-1,-2,-2};
+	public static int[] moveY = {2,2,1,-1,-2,-2,-1,1};
 	public static int N = 8;
 
 	public static boolean isSafe(int[][] chess,int move,int row,int col)
@@ -82,37 +82,31 @@ class Backtracking
 	}
 	public static boolean KnightTour(int[][] chess,int move,int row,int col)
 	{
-		if(move==N*N)
+		if(move>=64)
 		{
-			if(isSafe(chess,move,row,col))
-			{
-				chess[row][col] = move;
-			}
 			return true;
 		}
 
-		if(isSafe(chess,move,row,col))
+
+		for(int i=0; i<N; i++)
 		{
-			chess[row][col] = move++;
-
-
-			for(int i=0; i<N; i++)
+			int nextX = col+moveX[i];
+			int nextY = row + moveY[i];
+			if(isSafe(chess,move+1,nextY,nextX))
 			{
-				int nextX = col+moveX[i];
-				int nextY = row + moveY[i];
-
-				if(KnightTour(chess,move,nextY,nextX))
+				chess[nextY][nextX] = move;
+				if(KnightTour(chess,move+1,nextY,nextX))
 				{
 					return true;
 				}
 				else 
 				{
-					chess[row][col] = -1;
+					chess[nextY][nextX] = -1;
 				}
 			}
-
 		}
-			return false;
+
+		return false;
 	}
 	public static void main(String args[])
 	{
@@ -135,7 +129,7 @@ class Backtracking
 		}
 
 		int move =0,col=0,row=0;
-
+		chess[row][col] = 0;
 		KnightTour(chess,move,row,col);
 		printChess(chess);
 	}
